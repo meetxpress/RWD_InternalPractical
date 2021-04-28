@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Practical</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="container" ng-app="MyApp" ng-controller="MyController">
+        <h6>{{sid +'-'+ sname}}</h6>
+        <h3>Insert</h3>
+        <form class="mb-3">
+            <div class="row">
+                <div class="col">
+                    First Name:
+                    <input type="text" class="form-control w-50" ng-model="fname" placeholder="First name">
+
+                    Last Name:
+                    <input type="text" class="form-control w-50" ng-model="lname" placeholder="Last name">
+
+                    Department
+                    <input type="text" class="form-control w-50" ng-model="dept" placeholder="Department">
+
+                    Basic Salary:
+                    <input type="numer" class="form-control w-50" ng-model="bsal" placeholder="Basic Salary">
+
+                    <button class="btn btn-primary w-50 mt-4" ng-click="addToList()">Insert</button>
+                </div>
+            </div>
+        </form>
+
+        <h3>Display</h3>
+        <table border="2" class="table">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Department</th>
+                <th>Basic Salary</th>
+                <th>Increment</th>
+            </tr>
+            <tr ng-repeat="aa in userList track by $index">
+                <td>{{aa.fname}}</td>
+                <td>{{aa.lname}}</td>
+                <td>{{aa.dept}}</td>
+                <td>{{aa.bsal}}</td>
+                <td>{{aa.inc}}</td>
+                <td><button class="btn btn-primary" ng-click='DeleteRow(aa)'>DELETE</button></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
